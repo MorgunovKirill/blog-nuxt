@@ -1,14 +1,17 @@
 <script setup lang="ts">
+const route = useRoute();
+const isMainPage = computed(() => route.path === '/');
 </script>
 <template>
   <header class="header">
     <div class="logo">
-      <img src="/images/Qtim.png" alt="logo">
+      <img v-if="isMainPage" src="/images/Qtim.png" alt="logo">
+      <NuxtLink v-else to="/"><img src="/images/Qtim.png" alt="logo"></NuxtLink>
     </div>
     <div class="header__right">
         <nav class="nav">
-          <NuxtLink href="/works" class="navigation__item">Works</NuxtLink>
-          <NuxtLink href="/about" class="navigation__item">About</NuxtLink>
+          <NuxtLink to="/works" class="navigation__item">Works</NuxtLink>
+          <NuxtLink to="/about" class="navigation__item">About</NuxtLink>
         </nav>
         <div class="options">
           <UButton class="btn" >Let’s work</UButton>

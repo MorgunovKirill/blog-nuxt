@@ -3,7 +3,7 @@
   <li class="item">
     <img class="img" src="/images/defaultImg.png" alt="item image">
     <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, repudiandae?</p>
-    <NuxtLink class="link">Read more</NuxtLink>
+    <NuxtLink to="/articles/1" class="link">Read more</NuxtLink>
   </li>
 </template>
 <style scoped lang="scss">

@@ -2,6 +2,8 @@
 definePageMeta({
   layout: 'default'
 })
+
+const route = useRoute()
 </script>
 <template>
   <div class="container articles">
