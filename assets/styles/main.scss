@@ -1,0 +1,57 @@
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/Geist/Geist-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway/Raleway-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:visited {
+  color: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Geist', 'Raleway', 'Arial', sans-serif;
+  line-height: 1.2;
+  color: #000000;
+}
+
+.container {
+  max-width: 1247px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
