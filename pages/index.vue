@@ -27,8 +27,6 @@ const nextPage = () => {
 const prevPage = () => {
   if (currentPage.value > 1) currentPage.value--;
 };
-
-console.log('totalPages', totalPages.value)
 </script>
 <template>
   <div class="container articles">

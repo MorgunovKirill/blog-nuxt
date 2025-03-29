@@ -1,19 +1,31 @@
-<script setup>
+<script setup lang="ts">
+import type {Article} from "~/types";
+
 const route = useRoute()
+const {
+  data,
+  error,
+  status
+} = await useFetch<Article>(`https://6082e3545dbd2c001757abf5.mockapi.io/qtim-test-work/posts/${route.params.id}`)
+
+const article = computed(() => {
+  if (!data.value) return null;
+  return data.value;
+});
 </script>
 <template>
-  <div class="container articles">
-    <h1 class="title">At Test & Code, you can learn about software design</h1>
-    <img class="img" src="/images/defaultImg.png" alt="article image">
-    <h2 class="heading">About</h2>
-    <p class="text">The business model of this service is an aggregator that brings together commercial and noncommercial
-      organizations and charges a commission for transactions. The percentage that goes to the account of the platform
-      owner is discussed individually with each company. The platform also has a subscription system. It allows
-      nonprofits to post more than one project for which they collect donations.</p>
+  <div class="container article">
+    <p v-if="status === 'pending'">Загрузка...</p>
+    <div v-if="status !== 'pending' && !error && article">
+      <h1 class="title">{{ article.title }}</h1>
+      <img class="img" :src="article.image" alt="article image">
+      <h2 class="heading">About</h2>
+      <p class="text">{{ article.description }}</p>
+    </div>
   </div>
 </template>
 <style scoped lang="scss">
-.articles {
+.article {
   padding-top: 110px;
   padding-bottom: 80px;
 }
