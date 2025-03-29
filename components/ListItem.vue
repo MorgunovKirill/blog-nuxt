@@ -1,9 +1,12 @@
-<script setup></script>
+<script setup lang="ts">
+import type {Article} from "~/types/index.ts";
+defineProps<Article>()
+</script>
 <template>
   <li class="item">
-    <img class="img" src="/images/defaultImg.png" alt="item image">
-    <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, repudiandae?</p>
-    <NuxtLink to="/articles/1" class="link">Read more</NuxtLink>
+    <img class="img" :src="image" alt="item image">
+    <p class="text">{{ preview }}</p>
+    <NuxtLink :to="`/articles/${id}`" class="link">Read more</NuxtLink>
   </li>
 </template>
 <style scoped lang="scss">
