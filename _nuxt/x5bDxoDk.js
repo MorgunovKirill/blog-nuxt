@@ -1,0 +1,1 @@
+import{_ as o}from"./DlAUqK2U.js";import{c as t,a as r,o as s}from"./CG9KyYFj.js";const a={},n={class:"container"};function c(_,e){return s(),t("div",n,e[0]||(e[0]=[r("h1",null,"About Page",-1)]))}const l=o(a,[["render",c]]);export{l as default};
