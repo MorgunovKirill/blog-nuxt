@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type {Article} from "~/types";
+import Spinner from "~/components/Spinner.vue";
 
 const route = useRoute()
 const {
@@ -15,7 +16,7 @@ const article = computed(() => {
 </script>
 <template>
   <div class="container article">
-    <p v-if="status === 'pending'">Загрузка...</p>
+    <Spinner v-if="status === 'pending'" />
     <div v-if="status !== 'pending' && !error && article">
       <h1 class="title">{{ article.title }}</h1>
       <img class="img" :src="article.image" alt="article image">

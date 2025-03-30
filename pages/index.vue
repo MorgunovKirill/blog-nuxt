@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type {Article} from "~/types";
+import Spinner from "~/components/Spinner.vue";
 
 definePageMeta({
   layout: 'default'
@@ -22,7 +23,7 @@ const paginatedArticles = computed(() => {
 </script>
 <template>
   <div class="container articles">
-    <p v-if="status === 'pending'">Загрузка...</p>
+    <Spinner v-if="status === 'pending'" />
     <div v-if="status !== 'pending' && !error">
       <h1 class="title">Articles</h1>
       <ul class="list">
