@@ -19,14 +19,6 @@ const paginatedArticles = computed(() => {
   const start = (currentPage.value - 1) * perPage;
   return data.value.slice(start, start + perPage);
 });
-
-const totalPages = computed(() => data.value ? Math.ceil(data.value.length / perPage) : 1);
-const nextPage = () => {
-  if (currentPage.value < totalPages.value) currentPage.value++;
-};
-const prevPage = () => {
-  if (currentPage.value > 1) currentPage.value--;
-};
 </script>
 <template>
   <div class="container articles">
@@ -41,8 +33,14 @@ const prevPage = () => {
           :items-per-page="perPage"
           :total="data?.length"
           active-color="neutral"
-          size="xl"
           class="pagination"
+          :ui="{
+              item: 'w-[44px] h-[44px] rounded-[12px] grid place-items-center cursor-pointer data-[selected=true]:bg-[#000000] bg-[#F3F3F3] border-none',
+              first: 'hidden',
+              last: 'hidden',
+              prev: currentPage === 1 ? 'hidden w-[44px] h-[44px] rounded-[12px]' : 'w-[44px] h-[44px] rounded-[12px] grid place-items-center cursor-pointer',
+              next: 'w-[44px] h-[44px] rounded-[12px] grid place-items-center cursor-pointer'
+          }"
       ></UPagination>
     </div>
   </div>
@@ -58,6 +56,11 @@ const prevPage = () => {
   font-size: 84px;
   line-height: 100%;
   margin: 0 0 40px 0;
+}
+
+.nextBtn {
+  width: 44px;
+  height: 44px;
 }
 
 .list {
