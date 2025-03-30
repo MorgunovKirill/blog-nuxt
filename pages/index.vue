@@ -36,6 +36,14 @@ const prevPage = () => {
       <ul class="list">
         <ListItem v-for="article in paginatedArticles" :key="article.id" v-bind="article" />
       </ul>
+      <UPagination
+          v-model:page="currentPage"
+          :items-per-page="perPage"
+          :total="data?.length"
+          active-color="neutral"
+          size="xl"
+          class="pagination"
+      ></UPagination>
     </div>
   </div>
 </template>
@@ -56,7 +64,7 @@ const prevPage = () => {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 32px 44px;
-  margin: 0;
+  margin: 0 0 50px 0;
   padding: 0;
   list-style: none;
 
@@ -67,5 +75,10 @@ const prevPage = () => {
   @media (min-width: 1068px) {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+.pagination .button {
+  width: 44px;
+  height: 44px;
 }
 </style>

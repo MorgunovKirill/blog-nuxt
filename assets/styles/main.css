@@ -1,3 +1,6 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
 @font-face {
   font-family: 'Geist';
   src: url('/fonts/Geist/Geist-Regular.ttf') format('truetype');
