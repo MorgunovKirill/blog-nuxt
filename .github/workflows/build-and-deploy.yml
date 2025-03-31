@@ -33,7 +33,8 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist  # Ensure this matches the Nuxt output directory
+          branch: gh-pages
+          path: ./dist
 
   deploy:
     needs: build
